@@ -1,0 +1,13 @@
+{
+  "name": "todrfu-marketplace",
+  "owner": {
+    "name": "todrfu"
+  },
+  "plugins": [
+    {
+        "name": "cc-api",
+        "source": "./cc-api",
+        "description": "多 API Key 切换插件（本地市场）"
+    }
+  ]
+}

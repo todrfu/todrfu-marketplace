@@ -1,0 +1,8 @@
+{
+    "name": "cc-api",
+    "description": "在 Claude Code 中一键安装的多 API Key 切换插件：提供 /api 命令说明、跨平台包装器与会话恢复。",
+    "version": "1.0.0",
+    "author": {
+        "name": "todrfu"
+    }
+}
