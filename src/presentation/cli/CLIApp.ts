@@ -9,6 +9,7 @@ import { RemoveCommand } from '../commands/management/RemoveCommand';
 import { CurrentCommand } from '../commands/management/CurrentCommand';
 import { UseCommand } from '../commands/management/UseCommand';
 import { EditCommand } from '../commands/management/EditCommand';
+import { VersionCommand } from '../commands/management/VersionCommand';
 import { LaunchCommand } from '../commands/launcher/LaunchCommand';
 
 /**
@@ -36,6 +37,9 @@ export class CLIApp {
     this.dispatcher.register('current', new CurrentCommand(this.container.getCurrentKeyUseCase()));
     this.dispatcher.register('use', new UseCommand(this.container.getSwitchKeyUseCase()));
     this.dispatcher.register('edit', new EditCommand(this.container.getUpdateKeyUseCase()));
+    this.dispatcher.register('version', new VersionCommand());
+    this.dispatcher.register('-V', new VersionCommand());
+    this.dispatcher.register('--version', new VersionCommand());
     this.dispatcher.register('help', new HelpCommand(this.dispatcher));
     this.dispatcher.register('-h', new HelpCommand(this.dispatcher));
     this.dispatcher.register('--help', new HelpCommand(this.dispatcher));
@@ -94,6 +98,7 @@ class HelpCommand extends BaseCommand {
     console.log(`  ${colors.cyan}remove, rm <name>${colors.reset}  删除 API 密钥`);
     console.log(`  ${colors.cyan}current${colors.reset}           显示当前默认密钥`);
     console.log(`  ${colors.cyan}use <name>${colors.reset}         切换默认 API 密钥`);
+    console.log(`  ${colors.cyan}version, -V${colors.reset}        显示版本信息`);
     console.log(`  ${colors.cyan}help, -h, --help${colors.reset}   显示此帮助信息\n`);
 
     console.log(`${colors.bright}启动 Claude CLI:${colors.reset}`);
