@@ -17,6 +17,7 @@ import { RemoveKeyUseCase } from '../application/use-cases/key-management/Remove
 import { ListKeysUseCase } from '../application/use-cases/key-management/ListKeysUseCase';
 import { GetCurrentKeyUseCase } from '../application/use-cases/key-management/GetCurrentKeyUseCase';
 import { SwitchKeyUseCase } from '../application/use-cases/key-management/SwitchKeyUseCase';
+import { UpdateKeyUseCase } from '../application/use-cases/key-management/UpdateKeyUseCase';
 import { LaunchClaudeUseCase } from '../application/use-cases/cli-launcher/LaunchClaudeUseCase';
 
 import { AppConfigData } from './AppConfig';
@@ -166,6 +167,13 @@ export class DIContainer {
    */
   getSwitchKeyUseCase(): SwitchKeyUseCase {
     return new SwitchKeyUseCase(this.getKeyRepository());
+  }
+
+  /**
+   * 获取更新密钥用例（每次调用创建新实例）
+   */
+  getUpdateKeyUseCase(): UpdateKeyUseCase {
+    return new UpdateKeyUseCase(this.getKeyRepository());
   }
 
   /**

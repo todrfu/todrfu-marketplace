@@ -8,6 +8,7 @@ import { ListCommand } from '../commands/management/ListCommand';
 import { RemoveCommand } from '../commands/management/RemoveCommand';
 import { CurrentCommand } from '../commands/management/CurrentCommand';
 import { UseCommand } from '../commands/management/UseCommand';
+import { EditCommand } from '../commands/management/EditCommand';
 import { LaunchCommand } from '../commands/launcher/LaunchCommand';
 
 /**
@@ -34,6 +35,7 @@ export class CLIApp {
     this.dispatcher.register('rm', new RemoveCommand(this.container.getRemoveKeyUseCase()));
     this.dispatcher.register('current', new CurrentCommand(this.container.getCurrentKeyUseCase()));
     this.dispatcher.register('use', new UseCommand(this.container.getSwitchKeyUseCase()));
+    this.dispatcher.register('edit', new EditCommand(this.container.getUpdateKeyUseCase()));
     this.dispatcher.register('help', new HelpCommand(this.dispatcher));
     this.dispatcher.register('-h', new HelpCommand(this.dispatcher));
     this.dispatcher.register('--help', new HelpCommand(this.dispatcher));
@@ -88,6 +90,7 @@ class HelpCommand extends BaseCommand {
     console.log(`${colors.bright}管理命令:${colors.reset}`);
     console.log(`  ${colors.cyan}list, ls${colors.reset}          列出所有 API 密钥`);
     console.log(`  ${colors.cyan}add${colors.reset}               交互式添加新的 API 密钥`);
+    console.log(`  ${colors.cyan}edit <name>${colors.reset}        编辑现有 API 密钥信息`);
     console.log(`  ${colors.cyan}remove, rm <name>${colors.reset}  删除 API 密钥`);
     console.log(`  ${colors.cyan}current${colors.reset}           显示当前默认密钥`);
     console.log(`  ${colors.cyan}use <name>${colors.reset}         切换默认 API 密钥`);

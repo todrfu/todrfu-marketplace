@@ -2,6 +2,7 @@ export const MANAGEMENT_COMMANDS = [
   'list',
   'ls',
   'add',
+  'edit',
   'remove',
   'rm',
   'current',

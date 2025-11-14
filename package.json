@@ -1,6 +1,6 @@
 {
   "name": "@otdrfu/cck",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Claude Code Key Manager - Seamlessly manage multiple Anthropic API keys and launch Claude CLI",
   "type": "module",
   "bin": {
